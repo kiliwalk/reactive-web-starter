@@ -10,8 +10,8 @@ const App = React.createClass({
   render(){
     return (<div style={{flex: 1}}>
       <div className='nav'>
-        <IndexLink to="/" activeClassName='active'>首页</IndexLink>
-        <Link to="/about" activeClassName='active'>关于</Link>
+        <IndexLink to="/" activeClassName='active'>Home</IndexLink>
+        <Link to="/about" activeClassName='active'>About</Link>
         <span className='empty'/>
       </div>
       <div className='page-container'>

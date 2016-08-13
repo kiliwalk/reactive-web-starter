@@ -21,10 +21,10 @@ const HomePage = React.createClass({
     const today = new Date().toString();
 
     return (<div className='home-container'>
-      <Helmet title='首页'/>
+      <Helmet title='Home'/>
       <div className='welcome'>
-        <h4>欢迎您</h4><br/>
-        <div>今天是{today}</div>
+        <h4>Welcome</h4><br/>
+        <div>Today is {today}</div>
         <div>UserAgent: {store.state.userAgent}</div>
       </div>
       <div />

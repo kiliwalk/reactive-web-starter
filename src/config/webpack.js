@@ -1,4 +1,3 @@
-'use strict';
 
 const env = process.env.NODE_ENV!=='production'?'development':'production';
 const isDev = env==='development';
@@ -125,7 +124,6 @@ module.exports = {
         loader: isDev
           ? 'style!css?sourceMap!stylus?sourceMap'
           : ExtractTextPlugin.extract('style', 'css?sourceMap!stylus?sourceMap')},
-      // {test: /(\.css|\.styl)$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!stylus?sourceMap')},
     ]
   }
 };

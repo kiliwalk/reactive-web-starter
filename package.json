@@ -20,10 +20,10 @@
     "start-dev": "node dist/server/index.js",
     "prebuild": "npm run clean",
     "build": "NODE_ENV=production devsak build --src src -o dist && NODE_ENV=production webpack --verbose --colors --display-error-details --config dist/config/webpack.js",
-    "prestart": "npm run build",
-    "start": "NODE_ENV=production node dist/server/index.js",
     "prestart-ssr": "npm run build",
     "start-ssr": "NODE_ENV=production ENABLE_SSR=true node dist/server/index.js",
+    "prestart": "npm run build",
+    "start": "NODE_ENV=production node dist/server/index.js",
     "test": "devsak test"
   },
   "keywords": [

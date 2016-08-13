@@ -1,4 +1,3 @@
-'use strict';
 
 let defaults = require('./defaults.js');
 let my = require('./my.js');

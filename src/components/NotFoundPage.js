@@ -9,9 +9,9 @@ const NotFoundPage = () => {
     <div className='not-found-container'>
       <Helmet title='404'/>
       <h4 className="message">
-        404 没有找到
+        404 Not Found
       </h4>
-      <Link to="/" className='link'> 返回首页 </Link>
+      <Link to="/" className='link'> Back to Home </Link>
     </div>
   );
 };
