@@ -9,6 +9,11 @@ const HomePage = React.createClass({
   contextTypes: {
     appState: React.PropTypes.object,
   },
+  statics: {
+    serverLoad(){//to support SSR
+      return store.dispatch('/user-agent');
+    }
+  },
   componentDidMount: function() {
     store.dispatch('/user-agent');
   },

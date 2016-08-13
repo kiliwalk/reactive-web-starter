@@ -1,7 +1,21 @@
-'use strict';
+
+const path = require('path');
+const distRootPath = path.resolve(__dirname, '../../dist');
+const staticRootPath = path.join(distRootPath, 'client/static');
+
+////with this we can use require('lib') directly 
+process.env.NODE_PATH = distRootPath
+require('module').Module._initPaths();
+
+process.on('unhandledRejection', (err, p) => {
+  console.warn("Unhandled Rejection at: Promise ", p, ", error: ", err.stack || err.toString());
+});
 
 const env = process.env.NODE_ENV!=='production'?'development':'production';
-const path = require('path');
+const isDev = env==='development';
+
+const enableSSR = process.env.ENABLE_SSR === 'true';
+
 const serverConfig = require('../config/server');
 
 const ums = require('ums');
@@ -19,7 +33,7 @@ app.use(useCache());
 // const useStatic = express.static;
 // const app = express();
 
-if(env==='development'){
+if(isDev){
   router.use((req, resp, next)=>{
     console.log(req.method, req.url);
     return next();
@@ -43,9 +57,23 @@ if(serverConfig.proxy){
   })
 }
 
-router.use(expressPromisify(require('connect-history-api-fallback')({verbose: false})))
+//rewrite all react-router route urls to /index.html, like /about
+if(!isDev && enableSSR){
+  router.use((req, resp, next)=>{
+    let originUrl = req.url;
+    return (expressPromisify(require('connect-history-api-fallback')({verbose: false})))(req, resp)
+    .then(()=>{
+      if(!isDev && req.url!==originUrl){//rewrite url
+        return require('./server-render')({url: originUrl, next, resp})
+      }
+      return next();
+    })
+  })
+}else{
+  router.use(expressPromisify(require('connect-history-api-fallback')({verbose: false})));
+}
 
-if(env==='development'){
+if(isDev){
   const webpack = require('webpack');
   const webpackConfig = require('../config/webpack');
   const compiler = webpack(webpackConfig);
@@ -59,7 +87,7 @@ if(env==='development'){
   router.use(expressPromisify(require('webpack-hot-middleware')(compiler)))
 }else{//production
   // const staticMw = express.static(path.resolve(__dirname, '../dist/static'), {maxAge: '1year'});
-  const staticMw = useStatic(path.resolve(__dirname, '../client/static'), {maxAge: '1year'});
+  const staticMw = useStatic(staticRootPath, {maxAge: '1year'});
   router.get('/', staticMw)
   router.get('/index.html', staticMw)
   router.use('/static', staticMw);
@@ -71,6 +99,6 @@ app.listen(serverConfig.port, function(err) {
   if (err) {
     console.error(err);
   } else {
-    console.info(`==> 🚧  The ${env} server listening on port ${serverConfig.port}`);
+    console.info(`The ${env} server listening on port ${serverConfig.port}`);
   }
 });

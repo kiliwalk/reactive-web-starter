@@ -14,15 +14,17 @@
   },
   "license": "MIT",
   "scripts": {
-    "lint": "websak lint src",
-    "clean": "websak clean -o dist",
-    "prebuild": "npm run clean && babel -d dist/config src/config && babel -d dist/server src/server",
-    "build": "NODE_ENV=production webpack --verbose --colors --display-error-details --config dist/config/webpack.js",
-    "watch": "",
-    "test": "websak test",
-    "prepublish": "npm test && websak publish -c",
-    "start-dev": "npm run prebuild && node dist/server/index.js",
-    "start": "NODE_ENV=production node dist/server/index.js"
+    "lint": "devsak lint src",
+    "clean": "devsak clean -o dist",
+    "prestart-dev": "npm run clean && babel -d dist/config src/config && babel -d dist/server src/server",
+    "start-dev": "node dist/server/index.js",
+    "prebuild": "npm run clean",
+    "build": "NODE_ENV=production devsak build --src src -o dist && NODE_ENV=production webpack --verbose --colors --display-error-details --config dist/config/webpack.js",
+    "prestart": "npm run build",
+    "start": "NODE_ENV=production node dist/server/index.js",
+    "prestart-ssr": "npm run build",
+    "start-ssr": "NODE_ENV=production ENABLE_SSR=true node dist/server/index.js",
+    "test": "devsak test"
   },
   "keywords": [
     "reactive",

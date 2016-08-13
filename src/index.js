@@ -1,4 +1,6 @@
 
+//the client entry js file
+
 const store = require('store');
 
 if(process.env.NODE_ENV==='development'){
@@ -20,10 +22,10 @@ const routes = require('components/routes');
 const Container = store.createContainer();
 ReactDom.render(
   <Container><Router history={browserHistory} routes={routes}/></Container>,
-  document.getElementById('app')
+  document.getElementById('app'),
+  ()=>{
+    //executed after the component is rendered or updated.
+    //remove the preload state from server(SSR)
+    window.__INITIAL_STATE__ = null;
+  }
 );
-
-// ReactDom.render(
-//   <div>Hello World!</div>
-//   , document.getElementById('app')
-// );
