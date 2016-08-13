@@ -9,4 +9,5 @@ coverage/
 .npmignore
 *.sublime*
 *.tgz
-src
+src/
+verify/

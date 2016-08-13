@@ -44,3 +44,4 @@ dist
 # App
 src/config/server/my.js
 src/config/client/my.js
+verify/

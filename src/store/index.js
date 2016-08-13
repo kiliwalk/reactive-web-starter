@@ -1,13 +1,18 @@
 
 const umc = require('umc');
-const debug = require('debug');
+// const debug = require('debug');
 
-const store = umc({});
+let initialState = {};
 
-// const config = require('config/client');
+//custom initial state set
+//initialState = {...initialState, some: xxxx}
+
+const store = umc(initialState);
+
+store.use(require('./routers'));
+
 store.use(function(req, resp, next){
-  debug('redirect directly to server invoke: '+req.url)
-  // return util.json(config.apiServerUrl+req.url, req.body);//return resolve(count)
+  console.warn('unhandled store request: '+req.url);
 })
 
 module.exports = store;
