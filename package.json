@@ -1,0 +1,75 @@
+{
+  "name": "reactive-web-starter",
+  "description": "reactive-web-starter",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kiliwalk/reactive-web-starter",
+  "bugs": "https://github.com/kiliwalk/reactive-web-starter/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiliwalk/reactive-web-starter"
+  },
+  "author": {
+    "name": "kiliwalk",
+    "email": "kiliwalk@qq.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "websak lint src",
+    "clean": "websak clean -o dist",
+    "prebuild": "npm run clean && babel -d dist/config src/config && babel -d dist/server src/server",
+    "build": "NODE_ENV=production webpack --verbose --colors --display-error-details --config dist/config/webpack.js",
+    "watch": "",
+    "test": "websak test",
+    "prepublish": "npm test && websak publish -c",
+    "start-dev": "npm run prebuild && node dist/server/index.js",
+    "start": "NODE_ENV=production node dist/server/index.js"
+  },
+  "keywords": [
+    "reactive",
+    "web",
+    "starter"
+  ],
+  "engines": {
+    "node": ">= 4",
+    "npm": ">= 3"
+  },
+  "dependencies": {
+    "connect-history-api-fallback": "^1.2.0",
+    "debug": "^2.2.0",
+    "es6-promise": "^3.2.1",
+    "express-middleware-promisify": "^0.1.0",
+    "http-proxy": "^1.14.0",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-helmet": "^3.1.0",
+    "react-router": "^2.5.1",
+    "umc": "^0.5.1",
+    "ums": "^0.3.0",
+    "url-join": "^1.1.0",
+    "use-cache": "^0.2.0",
+    "use-router": "^0.2.0",
+    "use-send": "^0.2.0",
+    "use-static": "0.0.1"
+  },
+  "devDependencies": {
+    "assets-webpack-plugin": "^3.4.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react-hmre": "^1.1.1",
+    "css-loader": "^0.23.1",
+    "devsak": "^0.4.16",
+    "eslint-config-easy": "^0.4.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.21.0",
+    "json-loader": "^0.5.4",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.1.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0",
+    "webpack-md5-hash": "0.0.5"
+  }
+}

@@ -1,0 +1,65 @@
+/*body, div, span, a, h1, h2, h3, h4, h5, h6, hr, p,blockquote,dl, dt, dd, ul, ol, li, pre,form, fieldset, legend, button, input, textarea,th, td,img,i{*/
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border:none;
+
+  /*禁止移动端的点击阴影效果*/
+  -webkit-tap-highlight-color: transparent; 
+  -webkit-touch-callout: none;
+  /*-webkit-user-select: none;*/
+}
+
+html{height: 100%; }
+body, div, ol, ul, p, h1, h2, h3, h4, h5, h6{
+  display: flex;
+  flex-direction: column;
+}
+
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: 'Helvetica', 'Microsoft YaHei', '微软雅黑', 'MicrosoftJhengHei', '华文细黑', 'Tohoma', 'Arial', 'sans-serif';
+  font-size: 14px;
+  line-height: 1.428;
+  color: #4d4d4d;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+textarea{
+  outline: 0;
+}
+
+ul, ol{ list-style: none; }
+
+img{border: 0; }
+
+a{ text-decoration: none; color: inherit; }
+a:visited, a:hover, a:active {color: inherit;}
+
+table{ border-collapse: collapse; border-spacing: 0; font-size: inherit; }
+
+h1,h2,h3,h4,h5{font-weight: normal;}
+h1,.h1{ font-size: 26px; }
+h2,.h2{ font-size: 22px; }
+h3,.h3{ font-size: 18px; }
+h4,.h4{ font-size: 15px; }
+h5,.h5{ font-size: 14px; }
+h6,.h6{ font-size: 12px; }
+
+button{
+  display: inline-block;
+  background-color: inherit;
+  text-align: center;
+  outline: 0;
+}

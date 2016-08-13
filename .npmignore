@@ -1,0 +1,12 @@
+#Added by websak
+test/
+coverage/
+.websakconfig
+.npmignore
+.babelrc
+.eslintrc
+.gitignore
+.npmignore
+*.sublime*
+*.tgz
+src
