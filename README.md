@@ -2,13 +2,17 @@ Simple and lucid reactive web starter project
 =================================
 
 ## Fetures
-* stylus style
+* react
 * react-router
-* API proxy
+* webpack
+* babel for es7 support
 * Global state managed(use umc)
 * Custom dev server
-* Split app.js/app.css/vendor.js, and all with hash
-* SSR(Server side render). Not fully tested. Not recommend to use SSR. 
+* API proxy
+* stylus style
+* Base style to use `flex` box, like react-native.
+* Split app.js/app.css/vendor.js, and all with md5 hash name
+* SSR(Server side render). Not fully tested. Not recommend to use it. 
 
 ## Installation
 1. Run `git clone` and  `npm i`
