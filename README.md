@@ -15,15 +15,24 @@ Simple and lucid reactive web starter project
 * SSR(Server side render). Not fully tested. Not recommend to use it. 
 
 ## Installation
-1. Run `git clone` and  `npm i`
-2. In `src/config/client` dir, `cp defaults.js my.js`. Change my.js as you want
-3. In `src/config/server` dir, `cp defaults.js my.js`. Change my.js as you want
-4. Run `npm run start-dev` and open browser with `http://localhost:8083`.
+Run `git clone` and  `npm i`
 
 ## Usage
+
+### Configuration first
+1. In `src/config/client` dir, `cp defaults.js my.js`. Change my.js as you want
+2. In `src/config/server` dir, `cp defaults.js my.js`. Change my.js as you want
+
+### Development the pages
 Add your own files in `components`, `store/routers`, `styles` dirs.
 
-## Server Side Render
+### Development Server
+Run `npm run start-dev` and open browser with `http://localhost:8083`(or your custom host&port).
+
+### Production Server
+Run `npm run start` and open browser with `http://localhost:8083`(or your custom host&port)
+
+### Server Side Render
 To enable and use SSR:
 
 * Currently only support production environment
