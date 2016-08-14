@@ -1,10 +1,23 @@
-reactive-web-starter
+Simple and lucid reactive web starter project
 =================================
 
-## Installation
+## Fetures
+* stylus style
+* react-router
+* API proxy
+* Global state managed(use umc)
+* Custom dev server
+* Split app.js/app.css/vendor.js, and all with hash
+* SSR(Server side render). Not fully tested. Not recommend to use SSR. 
 
+## Installation
+1. Run `git clone` and  `npm i`
+2. In `src/config/client` dir, `cp defaults.js my.js`. Change my.js as you want
+3. In `src/config/server` dir, `cp defaults.js my.js`. Change my.js as you want
+4. Run `npm run start-dev` and open browser with `http://localhost:8083`.
 
 ## Usage
+Add your own files in `components`, `store/routers`, `styles` dirs.
 
 ## Server Side Render
 To enable and use SSR:

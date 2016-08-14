@@ -3,5 +3,5 @@
 module.exports = {
   host: 'localhost',//server listen host, only used in development
   port: 8083,//server listen port
-  proxy: 'http://example.com',//the api target, will append /api
+  proxy: 'http://example.com',//the api target, will append like /api/v1
 }

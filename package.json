@@ -1,6 +1,6 @@
 {
   "name": "reactive-web-starter",
-  "description": "reactive-web-starter",
+  "description": "Simple and lucid reactive web starter project",
   "version": "0.0.1",
   "homepage": "https://github.com/kiliwalk/reactive-web-starter",
   "bugs": "https://github.com/kiliwalk/reactive-web-starter/issues",
@@ -24,7 +24,8 @@
     "start-ssr": "NODE_ENV=production ENABLE_SSR=true node dist/server/index.js",
     "prestart": "npm run build",
     "start": "NODE_ENV=production node dist/server/index.js",
-    "test": "devsak test"
+    "test": "devsak test",
+    "prepublish": "exit 1"
   },
   "keywords": [
     "reactive",
