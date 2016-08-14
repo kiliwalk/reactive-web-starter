@@ -1,7 +1,7 @@
 Simple and lucid reactive web starter project
 =================================
 
-## Fetures
+## Features
 * react
 * react-router
 * webpack
