@@ -2,6 +2,7 @@
   "name": "reactive-web-starter",
   "description": "Simple and lucid reactive web starter project",
   "version": "0.0.1",
+  "private": true,
   "homepage": "https://github.com/kiliwalk/reactive-web-starter",
   "bugs": "https://github.com/kiliwalk/reactive-web-starter/issues",
   "repository": {
@@ -25,7 +26,6 @@
     "prestart": "npm run build",
     "start": "NODE_ENV=production node dist/server/index.js",
     "test": "devsak test",
-    "prepublish": "exit 1"
   },
   "keywords": [
     "reactive",

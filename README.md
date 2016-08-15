@@ -23,7 +23,7 @@ Run `git clone` and  `npm i`
 1. In `src/config/client` dir, `cp defaults.js my.js`. Change my.js as you want
 2. In `src/config/server` dir, `cp defaults.js my.js`. Change my.js as you want
 
-### Development the pages
+### Develop the pages
 Add your own files in `components`, `store/routers`, `styles` dirs.
 
 ### Development Server
